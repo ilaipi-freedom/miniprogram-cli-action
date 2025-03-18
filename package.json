@@ -1,7 +1,7 @@
 {
   "name": "miniprogram-cli-action",
   "main": "index.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Billy Yang",
   "scripts": {
     "build": "ncc build index.js --out dist"
