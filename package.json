@@ -1,0 +1,24 @@
+{
+  "name": "miniprogram-cli-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Billy Yang",
+  "scripts": {
+    "build": "ncc build index.js --out dist"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "ci",
+    "action"
+  ],
+  "license": "ISC",
+  "description": "Upload WeChat MiniProgram using miniprogram-ci",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "miniprogram-ci": "^2.0.10"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.3"
+  }
+}

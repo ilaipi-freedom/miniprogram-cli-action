@@ -1,0 +1,42 @@
+name: Auto Bump Version
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+
+jobs:
+  bump-version:
+    if: startsWith(github.event.head_commit.message, 'bump:') || startsWith(github.event.head_commit.message, 'bump：')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print commit message
+        run: |
+          echo "Latest commit message 1: ${{ github.event.head_commit.message }}"
+          echo "Latest commit message 2: ${{ github.event.commits[0].message }}"
+          
+
+      - name: 'Automated Version Bump'
+        uses: 'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # 主版本号(x.0.0): 当进行不兼容的 API 更改时使用
+          major-wording: 'MAJOR,cut-major,break,breaking'
+          # 次版本号(0.x.0): 当添加向后兼容的新功能时使用
+          minor-wording: 'add,Adds,new,feat'
+          # 修订号(0.0.x): 当进行向后兼容的问题修复时使用
+          patch-wording: 'patch,fixes,fix,fixed'     # Providing patch-wording will override commits # defaulting to a patch bump.
+          # 预发布版本: 用于指定发布候选版本或 alpha/beta 版本
+          rc-wording: 'RELEASE,alpha'
+          # 自动提交的信息模板
+          commit-message: 'CI: bumps version to {{version}} [skip ci]'
+          # 是否只检查最后一次提交
+          check-last-commit-only: 'true'
+          
+

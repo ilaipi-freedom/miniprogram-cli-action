@@ -1,0 +1,23 @@
+name: 'WeChat MiniProgram Upload Action'
+description: 'Upload WeChat MiniProgram using miniprogram-ci'
+inputs:
+  appid:
+    description: 'The AppID of the MiniProgram'
+    required: true
+  private_key:
+    description: 'Private key for authentication'
+    required: true
+  project_path:
+    description: 'Path to the MiniProgram project directory'
+    required: true
+    default: '.'
+  version:
+    description: 'Version of the MiniProgram to upload'
+    required: true
+  desc:
+    description: 'Description for this upload'
+    required: false
+    default: 'Uploaded via GitHub Actions'
+runs:
+  using: 'node22'
+  main: 'dist/index.js'  # 指向打包后的文件
