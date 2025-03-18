@@ -8,7 +8,10 @@ inputs:
     required: true
   private_key:
     description: '小程序代码上传密钥'
-    required: true
+    required: false
+  private_key_path:
+    description: '小程序代码上传密钥文件路径'
+    required: false
   project_path:
     description: '小程序项目路径'
     required: false
@@ -17,6 +20,10 @@ inputs:
     description: '发布版本号'
     required: false
     default: '1.0.0'
+  desc:
+    description: '项目备注'
+    required: false
+    default: ''
 
 runs:
   using: 'node20'
