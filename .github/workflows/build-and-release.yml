@@ -42,7 +42,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          branch: main
           force: true  # 强制推送以确保更新成功
 
       - name: get-npm-version
