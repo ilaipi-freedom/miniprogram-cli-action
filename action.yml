@@ -19,7 +19,7 @@ inputs:
     default: '1.0.0'
 
 runs:
-  using: 'node22'
+  using: 'node20'
   main: './dist/index.js'
 
 branding:
