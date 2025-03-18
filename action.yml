@@ -1,23 +1,27 @@
-name: 'WeChat MiniProgram Upload Action'
-description: 'Upload WeChat MiniProgram using miniprogram-ci'
+name: '微信小程序上传 Action'
+description: '自动化上传微信小程序代码'
+author: 'ilaipi'
+
 inputs:
   appid:
-    description: 'The AppID of the MiniProgram'
+    description: '小程序的 AppID'
     required: true
   private_key:
-    description: 'Private key for authentication'
+    description: '小程序代码上传密钥'
     required: true
   project_path:
-    description: 'Path to the MiniProgram project directory'
-    required: true
-    default: '.'
-  version:
-    description: 'Version of the MiniProgram to upload'
-    required: true
-  desc:
-    description: 'Description for this upload'
+    description: '小程序项目路径'
     required: false
-    default: 'Uploaded via GitHub Actions'
+    default: './'
+  version:
+    description: '发布版本号'
+    required: false
+    default: '1.0.0'
+
 runs:
   using: 'node22'
-  main: 'dist/index.js'  # 指向打包后的文件
+  main: './dist/index.js'
+
+branding:
+  icon: 'upload-cloud'
+  color: 'blue'
