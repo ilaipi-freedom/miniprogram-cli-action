@@ -12,7 +12,7 @@
     "ci",
     "action"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "description": "Upload WeChat MiniProgram using miniprogram-ci",
   "dependencies": {
     "@actions/core": "^1.11.1",
