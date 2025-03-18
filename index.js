@@ -5,17 +5,24 @@ const ci = require('miniprogram-ci');
   try {
     const appid = core.getInput('appid');
     const privateKey = core.getInput('private_key');
+    const privateKeyPath = core.getInput('private_key_path');
     const projectPath = core.getInput('project_path');
     const version = core.getInput('version');
     const desc = core.getInput('desc');
 
-    const project = new ci.Project({
+    const options = {
       appid: appid,
       type: 'miniProgram',
       projectPath: projectPath,
-      privateKey: privateKey,
       ignores: ['node_modules/**/*'],
-    });
+    }
+    if (privateKey) {
+      options.privateKey = privateKey;
+    } else if (privateKeyPath) {
+      options.privateKeyPath = privateKeyPath;
+    }
+
+    const project = new ci.Project(options);
 
     const uploadResult = await ci.upload({
       project,
