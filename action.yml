@@ -1,5 +1,5 @@
-name: '微信小程序上传 Action'
-description: '自动化上传微信小程序代码'
+name: 'WeChat MiniProgram Upload Action'
+description: 'Upload WeChat MiniProgram using miniprogram-ci'
 author: 'ilaipi'
 
 inputs:
